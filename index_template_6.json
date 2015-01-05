@@ -1,0 +1,40 @@
+{
+    "template" : "elk_workshop",
+    "settings" : {
+      "index.refresh_interval" : "5s"
+    },
+    "mappings" : {
+      "_default_" : {
+        "dynamic_templates" : [ {
+          "string_fields" : {
+            "mapping" : {
+              "index" : "analyzed",
+			  "norms" : {
+                "enabled" : false
+              },
+              "type" : "string",
+              "fields" : {
+                "raw" : {
+                  "index" : "not_analyzed",
+                  "ignore_above" : 256,
+                  "type" : "string"
+                }
+              }
+            },
+            "match_mapping_type" : "string",
+            "match" : "*"
+          }
+        } ],
+        "properties" : {
+          "@version" : {
+            "index" : "not_analyzed",
+            "type" : "string"
+          }
+        },
+        "_all" : {
+          "enabled" : false
+        }
+      }
+    },
+    "aliases" : { }
+}
