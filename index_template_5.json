@@ -1,7 +1,9 @@
 {
     "template" : "elk_workshop",
     "settings" : {
-      "index.refresh_interval" : "5s"
+      "index.refresh_interval" : "5s",
+      "number_of_shards" : 1,
+      "number_of_replicas" : 0
     },
     "mappings" : {
       "_default_" : {
@@ -28,6 +30,10 @@
         "properties" : {
           "@version" : {
             "index" : "not_analyzed",
+            "type" : "string"
+          },
+          "text" : {
+            "index" : "analyzed",
             "type" : "string"
           }
         },
