@@ -29,3 +29,6 @@ Supporting files for testing Elasticsearch index sizes. You can find more detail
 		curl -XDELETE http://localhost:9200/elk_workshop
 		
 
+#Acknowledgements
+
+Thanks to my colleague Christian Dahlqvist (@cdahlqvist) for adding single-shard tests and semi-structured test logs.
