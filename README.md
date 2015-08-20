@@ -1,6 +1,6 @@
 #elk-index-size-tests
 
-Supporting files for testing Elasticsearch index sizes. You can find more details on this blog post: [http://peter.mistermoo.com/2015/01/05/hardware-sizing-or-how-many-servers-do-i-really-need/](http://peter.mistermoo.com/2015/01/05/hardware-sizing-or-how-many-servers-do-i-really-need/).
+Supporting files for testing Elasticsearch index sizes. You can find more details on this blog post: [https://www.elastic.co/blog/elasticsearch-storage-the-true-story](https://www.elastic.co/blog/elasticsearch-storage-the-true-story).
 
 
 ##Testing steps
@@ -15,19 +15,19 @@ Supporting files for testing Elasticsearch index sizes. You can find more detail
 		bin/logstash -f complete.conf < logs
 		# For ingesting semi-structured log file containing more text:
 		bin/logstash -f complete2.conf < logs2
-		
+
 * Optimize the index to 1 segment (for a consistently comparable size) by calling POST elk_workshop/_optimize?max_num_segments=1
 
 		curl -XPOST http://localhost:9200/elk_workshop/_optimize?max_num_segments=1
-		
+
 * Get the index size on disk by calling GET elk_workshop/_stats
 
 		curl -XGET http://localhost:9200/elk_workshop/_stats?pretty
-		
+
 * Remove the index by calling DELETE elk_workshop
 
 		curl -XDELETE http://localhost:9200/elk_workshop
-		
+
 
 #Acknowledgements
 
