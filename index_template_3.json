@@ -1,37 +1,38 @@
 {
-    "template" : "elk_workshop",
-    "settings" : {
-      "index.refresh_interval" : "5s",
-      "number_of_shards" : 1,
-      "number_of_replicas" : 0
-    },
-    "mappings" : {
-      "_default_" : {
-        "dynamic_templates" : [ {
-          "string_fields" : {
-            "mapping" : {
-              "index" : "not_analyzed",
-              "type" : "string",
-			  "doc_values": true
-            },
-            "match_mapping_type" : "string",
-            "match" : "*"
-          }
-        } ],
-        "properties" : {
-          "@version" : {
-            "index" : "not_analyzed",
-            "type" : "string"
+  "template": "elk_workshop",
+  "settings": {
+    "index.refresh_interval": "5s",
+    "index.codec": "best_compression",
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "_default_": {
+      "dynamic_templates": [{
+        "string_fields": {
+          "mapping": {
+            "index": "not_analyzed",
+            "type": "string",
+            "doc_values": true
           },
-          "text" : {
-            "index" : "analyzed",
-            "type" : "string"
-          }
-        },
-        "_all" : {
-          "enabled" : false
+          "match_mapping_type": "string",
+          "match": "*"
         }
+      }],
+      "properties": {
+        "@version": {
+          "index": "not_analyzed",
+          "type": "string"
+        },
+        "text": {
+          "index": "analyzed",
+          "type": "string"
+        }
+      },
+      "_all": {
+        "enabled": false
       }
-    },
-    "aliases" : { }
+    }
+  },
+  "aliases": {}
 }
