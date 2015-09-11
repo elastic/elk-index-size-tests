@@ -17,6 +17,8 @@ Supporting files for testing Elasticsearch index sizes. You can find more detail
 		bin/logstash -f complete2.conf < logs2
 		# For ingesting mostly structured log file, retaining original event:
 		bin/logstash -f complete3.conf < logs
+		# For ingesting semi-structured log file containing more text, retaining original event:
+		bin/logstash -f complete4.conf < logs2
 
 * Optimize the index to 1 segment (for a consistently comparable size) by calling POST elk_workshop/_optimize?max_num_segments=1
 
@@ -39,6 +41,7 @@ File|Description
 complete.conf|Removes the original message
 complete2.conf|Adds a randomized unstructured text element to end of log line
 complete3.conf|Retains the original message
+complete3.conf|Adds a randomized unstructured text element to end of log line, retains the original message
 
 ###Elasticsearch index templates
 
