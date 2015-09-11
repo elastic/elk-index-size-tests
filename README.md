@@ -41,7 +41,7 @@ File|Description
 complete.conf|Removes the original message
 complete2.conf|Adds a randomized unstructured text element to end of log line
 complete3.conf|Retains the original message
-complete3.conf|Adds a randomized unstructured text element to end of log line, retains the original message
+complete4.conf|Adds a randomized unstructured text element to end of log line, retains the original message
 
 ###Elasticsearch index templates
 
